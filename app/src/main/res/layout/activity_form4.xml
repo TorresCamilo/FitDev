@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Form4Activity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="310dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="455dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="6dp"
+            android:rowCount="4">
+
+            <RadioButton
+                android:id="@+id/radioButton10"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Lunes"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton9"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Martes"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Miercoles"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Jueves"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Viernes"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Sábado"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Domingo"
+                android:textSize="18sp" />
+        </GridLayout>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="volverAtras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_flecha" />
+
+    <ProgressBar
+        android:id="@+id/progressBar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="374dp"
+        android:layout_height="11dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:text="¿Cuál es tu experiencia?"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Principiante"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Intermediario"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Avanzado"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button5"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/button_background"
+        android:onClick="Continuar4"
+        android:text="Continuar"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="168dp"
+        android:text="Menos de 6 meses de experiencia"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="243dp"
+        android:text="Más de 6 meses y menos de 2 años."
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="320dp"
+        android:text="Más de 2 años"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="332dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="370dp"
+        android:text="¿Qué días de la semana quieres entrenar?"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

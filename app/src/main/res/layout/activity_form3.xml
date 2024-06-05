@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFF0FC"
+    tools:context=".Form3Activity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="310dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="455dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="6dp"
+            android:rowCount="4">
+
+            <RadioButton
+                android:id="@+id/radioButton10"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Balanceado"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton9"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Pecho"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Espalda"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Brazos"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Piernas"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Abdomen"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_radio_button"
+                android:button="@null"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:text="Gluteos"
+                android:textSize="18sp" />
+        </GridLayout>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="volverAtras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_flecha" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="374dp"
+        android:layout_height="11dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:text="¿Cuál es tu objetivo?"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Hipertrofia"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Definición muscular"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="14dp"
+            android:text="Perder peso"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button4"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/button_background"
+        android:onClick="Continuar3"
+        android:text="Continuar"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="168dp"
+        android:text="Ganar masa muscular y músculos voluminosos"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="243dp"
+        android:text="Músculos más fuertes, más rígidos y más visibles"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="303dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="320dp"
+        android:text="Perder grasa corporal"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="332dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="370dp"
+        android:text="¿En qué grupo muscular quieres enfocarte?"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
