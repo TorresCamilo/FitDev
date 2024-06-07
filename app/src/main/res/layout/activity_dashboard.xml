@@ -167,6 +167,7 @@
                 android:layout_weight="1"
 
                 android:background="@drawable/bg_top_banner"
+                android:onClick="ListaEjercicios"
                 android:orientation="vertical">
 
                 <ImageView

@@ -1,0 +1,100 @@
+package com.torres.fitdev;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import androidx.annotation.Nullable;
+
+public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
+
+    public AdminSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        //Se ejecutan los comandos SQL para crear las tablas
+        db.execSQL("CREATE TABLE Usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, tipoUsuario TEXT NOT NULL);");
+        db.execSQL("CREATE TABLE Cliente (id INTEGER PRIMARY KEY, fechaNacimiento DATE, genero TEXT, altura REAL, peso REAL, objetivo TEXT, musculoObjetivo TEXT, experiencia TEXT, diasEntrenar TEXT, horaEntreno TIME, gym TEXT, FOREIGN KEY (id) REFERENCES Usuario(id));");
+        db.execSQL("CREATE TABLE Administrador (id INTEGER PRIMARY KEY, permisos INTEGER, FOREIGN KEY (id) REFERENCES Usuario(id));");
+        db.execSQL("CREATE TABLE Ejercicio (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, series INTEGER, repeticiones INTEGER, duracion INTEGER, imagenReferencia TEXT NOT NULL UNIQUE);");
+        db.execSQL("CREATE TABLE PlanEntrenamiento (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, ejercicios TEXT, clienteEmail TEXT NOT NULL, fechaModificacion DATE, retroalimentacion TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
+        db.execSQL("CREATE TABLE Progreso (id INTEGER PRIMARY KEY AUTOINCREMENT, clienteEmail TEXT NOT NULL, planEntrenamiento INTEGER NOT NULL, fecha DATE, ejerciciosCompletados TEXT, observaciones TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email), FOREIGN KEY (planEntrenamiento) REFERENCES PlanEntrenamiento(id));");
+        db.execSQL("CREATE TABLE Notificacion (id INTEGER PRIMARY KEY AUTOINCREMENT, clienteEmail TEXT NOT NULL, mensaje TEXT, fechaNotificacion DATE, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
+
+        this.insertDefaultExercises(db);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Eliminar las tablas existentes
+        db.execSQL("DROP TABLE IF EXISTS Usuario;");
+        db.execSQL("DROP TABLE IF EXISTS Cliente;");
+        db.execSQL("DROP TABLE IF EXISTS Administrador;");
+        db.execSQL("DROP TABLE IF EXISTS Ejercicio;");
+        db.execSQL("DROP TABLE IF EXISTS PlanEntrenamiento;");
+        db.execSQL("DROP TABLE IF EXISTS Progreso;");
+        db.execSQL("DROP TABLE IF EXISTS Notificacion;");
+
+        // Crear las tablas de nuevo
+        onCreate(db);
+    }
+    private void insertDefaultExercises(SQLiteDatabase db) {
+        // Lista de ejercicios por defecto
+        String[] ejercicios = {
+                "('Saltar la cuerda', 'Sujeta una cuerda de saltar con ambas manos y salta sobre ella mientras la haces girar por debajo de tus pies.', 3, 15, 60, 'ej1')",
+                "('Estiramiento de cuerpo completo', 'Realiza movimientos suaves para estirar todos los grupos musculares, incluyendo brazos, piernas, espalda y cuello.', 3, 10, 60, 'ej2')",
+                "('Sentadilla aérea', 'Baja las caderas hacia atrás y hacia abajo como si te sentaras en una silla invisible, luego levántate de nuevo.', 3, 12, 60, 'ej3')",
+                "('Sentadilla con barra', ' Coloca una barra sobre tus hombros y realiza una sentadilla como se describió anteriormente.', 3, 10, 60, 'ej4')",
+                "('Sentadilla búlgara con barra', 'Coloca un pie detrás de ti sobre un banco o plataforma, sujeta la barra en tus hombros y realiza una sentadilla con la pierna delantera', 3, 12, 60, 'ej5')",
+                "('Empuje de cadera alto con barra', 'Coloca la barra sobre tus caderas y empuja hacia arriba mientras mantienes la espalda recta.', 3, 15, 60, 'ej6')",
+                "('Columpio con kettlebell', 'Sujeta una kettlebell con ambas manos y balancea entre las piernas y hacia adelante, usando la fuerza de las caderas.', 3, 12, 60, 'ej7')",
+                "('Extensión de piernas sentado', 'Siéntate en una máquina de extensión de piernas y extiende las piernas hacia adelante para trabajar los músculos cuádriceps.', 3, 10, 60, 'ej8')",
+                "('Máquina de elevación de pantorrillas sentado', 'Siéntate en una máquina de pantorrillas y levanta los talones hacia arriba para trabajar los músculos de la pantorrilla.', 3, 15, 60, 'ej9')",
+                "('Máquina de elevación de pantorrillas de pie', 'Párate en una máquina de pantorrillas y levanta los talones hacia arriba mientras mantienes las piernas rectas.', 3, 12, 60, 'ej10')",
+                "('Picar leña alto bajo con polea', 'Este ejercicio simula el movimiento de picar leña. Utiliza una polea alta y baja para imitar el gesto de cortar madera. Mantén una postura estable y controlada mientras realizas el movimiento.', 3, 10, 60, 'ej11')",
+                "('Abdominales de rodillas con barra EZ', 'Siéntate en una máquina de abdominales con las rodillas dobladas. Sujeta una barra EZ detrás de la cabeza y realiza abdominales flexionando el torso hacia adelante.', 3, 15, 60, 'ej12')",
+                "('Entrenador de cross', 'Este equipo combina movimientos de remo, ciclismo y esquí de fondo. Trabaja varios grupos musculares al mismo tiempo.', 3, 12, 60, 'ej13')",
+                "('Estiramiento de cuerpo completo', 'Realiza movimientos suaves para estirar todos los grupos musculares, incluyendo brazos, piernas, espalda y cuello.', 3, 10, 60, 'ej14')",
+                "('Press de banca con barra', 'Acuéstate en un banco plano y levanta una barra con pesas desde el pecho hasta la extensión completa de los brazos.', 3, 12, 60, 'ej15')",
+                "('Press de banca inclinado con mancuernas', 'Realiza el mismo movimiento que el press de banca, pero en un banco inclinado. Utiliza mancuernas en lugar de una barra.', 3, 10, 60, 'ej16')",
+                "('Press de hombros con barra', 'Párate con los pies separados al ancho de los hombros. Levanta una barra desde los hombros hasta la extensión completa de los brazos sobre la cabeza.', 3, 12, 60, 'ej17')",
+                "('Remo de pie con barra', 'Sujeta una barra con las manos y flexiona las caderas hacia adelante. Luego, estira las caderas y tira de la barra hacia el abdomen.', 3, 10, 60, 'ej18')",
+                "('Dominadas con agarre ancho', 'Utiliza una barra fija para hacer dominadas, manteniendo las manos separadas a la distancia de los hombros.', 3, 15, 60, 'ej19')",
+                "('Inmersiones en barras paralelas', 'Colócate entre dos barras paralelas y baja el cuerpo flexionando los brazos. Luego, estira los brazos para elevar el cuerpo.', 3, 12, 60, 'ej20')",
+                "('Máquina de remo (esfuerzo ligero)', 'Utiliza una máquina de remo para simular el movimiento de remar. Ajusta la resistencia para un esfuerzo ligero.', 3, 15, 60, 'ej21')",
+                "('Estiramiento de cuerpo completo', 'Realiza movimientos suaves para estirar todos los grupos musculares, incluyendo brazos, piernas, espalda y cuello.', 3, 10, 60, 'ej22')",
+                "('Peso muerto con barra', 'Coloca una barra en frente de tus pies y levántala desde el suelo hasta la posición de pie. Mantén la espalda recta y las piernas ligeramente flexionadas.', 3, 12, 60, 'ej23')",
+                "('Sentadilla frontal con barra', 'Sujeta la barra en frente de tus hombros y realiza una sentadilla como se describió anteriormente.', 3, 10, 60, 'ej24')",
+                "('Estocada con barra', 'Da un paso hacia adelante y baja las caderas en una posición de estocada. Sujeta la barra en los hombros para agregar resistencia.', 3, 12, 60, 'ej25')",
+                "('Buenos días con barra', 'Coloca la barra en la parte posterior de tus hombros y flexiona las caderas hacia adelante.', 3, 15, 60, 'ej26')",
+                "('Ruleta rusa', 'Este ejercicio combina giros y movimientos de cadera. Sujeta una barra o pesa y gira el torso de un lado a otro.', 3, 12, 60, 'ej27')",
+                "('Curvas laterales con mancuerna', 'Sujeta una mancuerna en una mano y flexiona el torso hacia un lado, luego hacia el otro.', 3, 15, 60, 'ej28')",
+                "('Crunch inverso acostado', 'Acuéstate boca arriba y levanta las piernas hacia arriba. Luego, levanta la parte inferior de la espalda del suelo para trabajar los abdominales.', 3, 12, 60, 'ej29')",
+                "('Bicicleta elíptica (esfuerzo ligero)', 'Utiliza una bicicleta elíptica con resistencia ligera para trabajar tanto las piernas como los brazos.', 3, 15, 60, 'ej30')",
+                "('Estiramiento de cuerpo completo', 'Realiza movimientos suaves para estirar todos los grupos musculares, incluyendo brazos, piernas, espalda y cuello.', 3, 10, 60, 'ej31')",
+                "('Dominadas con agarre ancho', 'Utiliza una barra fija para hacer dominadas, manteniendo las manos separadas a la distancia de los hombros.', 3, 12, 60, 'ej32')",
+                "('Pull-ups con anillos', 'Realiza pull-ups utilizando anillos de gimnasia. Estira los brazos y luego flexiónalos para elevar el cuerpo.', 3, 10, 60, 'ej33')",
+                "('Remo sentado con polea', 'Siéntate en una máquina de remo y tira de la polea hacia tu abdomen, trabajando los músculos de la espalda.', 3, 15, 60, 'ej34')",
+                "('Press de banca con barra', 'Acuéstate en un banco plano y levanta una barra con pesas desde el pecho hasta la extensión completa de los brazos.', 3, 12, 60, 'ej35')",
+                "('Press de banca inclinado con agarre ancho', 'Realiza el mismo movimiento que el press de banca, pero en un banco inclinado y con las manos separadas.', 3, 10, 60, 'ej36')",
+                "('Press Arnold con mancuernas', 'Sujeta mancuernas en los hombros y presiona hacia arriba, girando las muñecas durante el movimiento.', 3, 12, 60, 'ej37')",
+                "('Despliegue de abdominales sobre rodillas', 'Siéntate en una máquina de abdominales y extiende el torso hacia adelante desde una posición arrodillada.', 3, 15, 60, 'ej38')",
+                "('Giro ruso con mancuerna', 'Siéntate en el suelo con las piernas flexionadas y sujeta una mancuerna. Gira el torso de un lado a otro.', 3, 12, 60, 'ej39')"
+        };
+
+        // Verificar e insertar cada ejercicio
+        for (String ejercicio : ejercicios) {
+            String referenciaEjercicio = ejercicio.split(",")[5].replace("'", "").trim();
+            Cursor cursor = db.rawQuery("SELECT id FROM Ejercicio WHERE imagenReferencia = ?", new String[]{referenciaEjercicio});
+
+            if (cursor.getCount() == 0) {
+                // Insertar el ejercicio por defecto
+                db.execSQL("INSERT INTO Ejercicio (nombre, descripcion, series, repeticiones, duracion, imagenReferencia) VALUES " + ejercicio + ";");
+            }
+            cursor.close();
+        }
+    }
+}

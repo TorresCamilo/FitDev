@@ -27,4 +27,8 @@ public class DashboardActivity extends AppCompatActivity {
         Intent siguiente = new Intent(this, NotificacionesActivity.class);
         startActivity(siguiente);
     }
+    public void ListaEjercicios(View v){
+        Intent siguiente = new Intent(this, ListEjercicios.class);
+        startActivity(siguiente);
+    }
 }
