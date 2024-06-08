@@ -68,6 +68,7 @@ public class Form5Activity extends AppCompatActivity {
             Registrar();
             Toast.makeText(this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(this, "Rellene todos los campos!", Toast.LENGTH_SHORT).show();
         }
