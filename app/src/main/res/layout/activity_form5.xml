@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TimePicker
-        android:id="@+id/datePicker1"
+        android:id="@+id/timePckHoraEntreno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -83,9 +83,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/edtNombreGym"
         android:layout_width="300dp"
-        android:layout_height="91dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/search_icon"
         android:drawablePadding="15dp"

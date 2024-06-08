@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.RequiresApi;
@@ -17,10 +19,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Date;
+
 public class Form1Activity extends AppCompatActivity {
     private EditText txtFecha;
     private ImageButton btnFecha;
     private DatePicker dpFecha;
+    private RadioButton rdbMasculino, rdbFemenino, rdbGay;
+    private String[] datosUsuario;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +38,17 @@ public class Form1Activity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtFecha = findViewById(R.id.txtFecha);
+        txtFecha = findViewById(R.id.dateFechaNacimiento);
         btnFecha = findViewById(R.id.btnFecha);
         dpFecha = findViewById(R.id.dpFecha);
-
         txtFecha.setText(getFechaDpFecha());
 
-        /*dpFecha.setOnDateChangedListener(dpFecha, anio, mes, dia ->{
-            txtFecha.setText(getFechaDpFecha());
-            dpFecha.setVisibility(View.GONE);
-        });*/
+        rdbFemenino = findViewById(R.id.rdbFemenino);
+        rdbMasculino = findViewById(R.id.rdbMasculino);
+        rdbGay = findViewById(R.id.rdbGay);
+
+        datosUsuario = getIntent().getStringArrayExtra("datosUsuario");
+
         dpFecha.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -65,7 +72,25 @@ public class Form1Activity extends AppCompatActivity {
         finish();
     }
     public void Continuar(View v){
-        Intent intent = new Intent(this, Form2Activity.class);
-        startActivity(intent);
+        String genero = "";
+        if (rdbMasculino.isChecked()) {
+            genero = "Masculino";
+        } else if (rdbFemenino.isChecked()) {
+            genero = "Femenino";
+        } else if (rdbGay.isChecked()) {
+            genero = "Prefiere no decirlo";
+        }
+
+        String fechaNacimiento = getFechaDpFecha();
+
+        if (!(genero.isEmpty() || fechaNacimiento.isEmpty())) {
+            Intent intent = new Intent(this, Form2Activity.class);
+            intent.putExtra("datosUsuario",datosUsuario);
+            intent.putExtra("fechaNacimiento",fechaNacimiento);
+            intent.putExtra("genero",genero);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Rellene todos los campos!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

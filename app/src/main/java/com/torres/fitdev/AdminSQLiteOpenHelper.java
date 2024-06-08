@@ -17,8 +17,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Se ejecutan los comandos SQL para crear las tablas
         db.execSQL("CREATE TABLE Usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, tipoUsuario TEXT NOT NULL);");
-        db.execSQL("CREATE TABLE Cliente (id INTEGER PRIMARY KEY, fechaNacimiento DATE, genero TEXT, altura REAL, peso REAL, objetivo TEXT, musculoObjetivo TEXT, experiencia TEXT, diasEntrenar TEXT, horaEntreno TIME, gym TEXT, FOREIGN KEY (id) REFERENCES Usuario(id));");
-        db.execSQL("CREATE TABLE Administrador (id INTEGER PRIMARY KEY, permisos INTEGER, FOREIGN KEY (id) REFERENCES Usuario(id));");
+        db.execSQL("CREATE TABLE Cliente (id INTEGER PRIMARY KEY AUTOINCREMENT, fechaNacimiento DATE, genero TEXT, altura REAL, peso REAL, objetivo TEXT, musculoObjetivo TEXT, experiencia TEXT, diasEntrenar TEXT, horaEntreno TIME, gym TEXT, email TEXT, FOREIGN KEY (email) REFERENCES Usuario(email));");
+        db.execSQL("CREATE TABLE Administrador (id INTEGER PRIMARY KEY, permisos INTEGER, email TEXT, FOREIGN KEY (email) REFERENCES Usuario(email));");
         db.execSQL("CREATE TABLE Ejercicio (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, series INTEGER, repeticiones INTEGER, duracion INTEGER, imagenReferencia TEXT NOT NULL UNIQUE);");
         db.execSQL("CREATE TABLE PlanEntrenamiento (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, ejercicios TEXT, clienteEmail TEXT NOT NULL, fechaModificacion DATE, retroalimentacion TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
         db.execSQL("CREATE TABLE Progreso (id INTEGER PRIMARY KEY AUTOINCREMENT, clienteEmail TEXT NOT NULL, planEntrenamiento INTEGER NOT NULL, fecha DATE, ejerciciosCompletados TEXT, observaciones TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email), FOREIGN KEY (planEntrenamiento) REFERENCES PlanEntrenamiento(id));");

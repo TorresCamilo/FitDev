@@ -24,7 +24,7 @@
             android:rowCount="4">
 
             <RadioButton
-                android:id="@+id/radioButton10"
+                android:id="@+id/rdnLunes"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -36,7 +36,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton9"
+                android:id="@+id/rdbMartes"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -48,7 +48,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton8"
+                android:id="@+id/rdbMiercoles"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -60,7 +60,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/rdbJueves"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -72,7 +72,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/rdbViernes"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -84,7 +84,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/rdbSabado"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -96,7 +96,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton7"
+                android:id="@+id/rdbDomingo"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -155,7 +155,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rdbPrincipiante"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -167,7 +167,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rdbIntermediario"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -179,7 +179,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rdbAvanzado"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -210,7 +210,7 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="303dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="168dp"
@@ -222,7 +222,7 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="303dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="243dp"
@@ -234,7 +234,7 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="303dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="320dp"

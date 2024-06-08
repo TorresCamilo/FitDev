@@ -17,11 +17,11 @@
         android:text="kg"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/numberPicker2"
+        app:layout_constraintStart_toEndOf="@+id/nmbPckPeso"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <NumberPicker
-        android:id="@+id/numberPicker2"
+        android:id="@+id/nmbPckPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="172dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
-        android:id="@+id/numberPicker"
+        android:id="@+id/nmbPckAltura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="172dp"
@@ -117,6 +117,6 @@
         android:text="cm"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/numberPicker"
+        app:layout_constraintStart_toEndOf="@+id/nmbPckAltura"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

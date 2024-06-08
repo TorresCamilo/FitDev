@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rdbMasculino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -80,7 +80,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rdbFemenino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -92,7 +92,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rdbGay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -121,7 +121,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtFecha"
+        android:id="@+id/dateFechaNacimiento"
         android:layout_width="166dp"
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
@@ -144,7 +144,7 @@
         android:onClick="ShowCalendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtFecha"
+        app:layout_constraintStart_toEndOf="@+id/dateFechaNacimiento"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@android:drawable/ic_menu_today" />
 

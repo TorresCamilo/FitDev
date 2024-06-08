@@ -8,107 +8,103 @@
     android:background="#EFF0FC"
     tools:context=".Form3Activity">
 
-    <RadioGroup
-        android:id="@+id/radioGroup2"
+
+    <GridLayout
         android:layout_width="310dp"
         android:layout_height="245dp"
-        android:layout_marginTop="455dp"
+        android:columnCount="2"
+        android:padding="6dp"
+        android:rowCount="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
 
-        <GridLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/rdbBalanceado"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:padding="6dp"
-            android:rowCount="4">
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Balanceado"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton10"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Balanceado"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbPecho"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Pecho"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton9"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Pecho"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbEspalda"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Espalda"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton8"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Espalda"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbBrazos"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Brazos"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Brazos"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbPiernas"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Piernas"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton5"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Piernas"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbAbdomen"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Abdomen"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton6"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Abdomen"
-                android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/rdbGluteos"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_radio_button"
+            android:button="@null"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:text="Gluteos"
+            android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton7"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/bg_radio_button"
-                android:button="@null"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:text="Gluteos"
-                android:textSize="18sp" />
-        </GridLayout>
-    </RadioGroup>
+    </GridLayout>
+
 
     <ImageView
         android:id="@+id/imageView3"
@@ -156,7 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rdbHipertrofia"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -168,7 +164,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rdbDefinicion"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -180,7 +176,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rdbPerderPeso"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="8dp"
