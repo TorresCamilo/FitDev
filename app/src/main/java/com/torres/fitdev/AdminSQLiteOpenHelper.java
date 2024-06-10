@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -20,11 +21,15 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Cliente (id INTEGER PRIMARY KEY AUTOINCREMENT, fechaNacimiento DATE, genero TEXT, altura REAL, peso REAL, objetivo TEXT, musculoObjetivo TEXT, experiencia TEXT, diasEntrenar TEXT, horaEntreno TIME, gym TEXT, email TEXT, FOREIGN KEY (email) REFERENCES Usuario(email));");
         db.execSQL("CREATE TABLE Administrador (id INTEGER PRIMARY KEY, permisos INTEGER, email TEXT, FOREIGN KEY (email) REFERENCES Usuario(email));");
         db.execSQL("CREATE TABLE Ejercicio (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, series INTEGER, repeticiones INTEGER, duracion INTEGER, imagenReferencia TEXT NOT NULL UNIQUE);");
-        db.execSQL("CREATE TABLE PlanEntrenamiento (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, ejercicios TEXT, clienteEmail TEXT NOT NULL, fechaModificacion DATE, retroalimentacion TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
+        db.execSQL("CREATE TABLE PlanEntrenamiento (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, descripcion TEXT, ejercicios TEXT, clienteEmail TEXT NOT NULL, retroalimentacion TEXT, etiquetas TEXT, diasObjetivos REAL, diasCompletados REAL, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
         db.execSQL("CREATE TABLE Progreso (id INTEGER PRIMARY KEY AUTOINCREMENT, clienteEmail TEXT NOT NULL, planEntrenamiento INTEGER NOT NULL, fecha DATE, ejerciciosCompletados TEXT, observaciones TEXT, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email), FOREIGN KEY (planEntrenamiento) REFERENCES PlanEntrenamiento(id));");
         db.execSQL("CREATE TABLE Notificacion (id INTEGER PRIMARY KEY AUTOINCREMENT, clienteEmail TEXT NOT NULL, mensaje TEXT, fechaNotificacion DATE, FOREIGN KEY (clienteEmail) REFERENCES Cliente(email));");
 
-        this.insertDefaultExercises(db);
+        insertDefaultExercises(db);
+        insertDefaultPlanes(db);
+        insertDefaultUsers(db);
+        insertDefaultClientes(db);
+
     }
 
     @Override
@@ -95,6 +100,69 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 db.execSQL("INSERT INTO Ejercicio (nombre, descripcion, series, repeticiones, duracion, imagenReferencia) VALUES " + ejercicio + ";");
             }
             cursor.close();
+        }
+    }
+    private void insertDefaultPlanes(SQLiteDatabase db) {
+        /*
+        Lista de planes por defecto
+        Balanceado
+        Pecho
+        Espalda
+        Brazos
+        Piernas
+        Abdomen
+        Gluteos
+        */
+        String[] planes = {
+                //Nombre, descripcion, ejercicios, clienteEmail, retroalimentacion, etiquetas, diasObjetivos, diasCompletados
+                "('Plan Balanceado', 'Entrena todos los grupos musculares de manera equilibrada para mejorar la fuerza y la forma corporal.', '', '', '', 'Balanceado', '15','0')",
+                "('Plan Pecho', 'Ejercicios enfocados en fortalecer los músculos pectorales para un pecho más definido.', 'Press de banca con barra, Press de banca inclinado con mancuernas, Inmersiones en barras paralelas, Press de banca con barra, Press de banca inclinado con agarre', 'kaleth@hotmail.com, asd3@', '', 'Pecho', '15','0')",
+                "('Plan Espalda', 'Trabaja los músculos de la espalda para mejorar la postura y la fuerza de la parte superior del cuerpo.', 'Dominadas con agarre ancho, Remo de pie con barra, Pull-ups con anillos, Press Arnold con mancuernas', 'asd@', '', 'Espalda', '15','0')",
+                "('Plan Brazos', 'Se centra en el desarrollo de los músculos de los brazos, bíceps y tríceps, para unos brazos más fuertes.', 'Press de hombros con barra, Inmersiones en barras paralelas, Ruleta rusa, Curvas laterales, Máquina de remo', 'asd2@', '', 'Brazos', '15','0')",
+                "('Plan Piernas', 'Ejercicios para fortalecer los músculos de las piernas, como cuádriceps, isquiotibiales y glúteos, para mejorar la fuerza y la estabilidad.', 'Sentadilla aérea, Sentadilla con barra, Sentadilla búlgara con barra, Empuje de cadera alto, Extensión de piernas sentado', '', '', 'Piernas', '15','0')",
+                "('Plan Abdomen', 'Trabaja los músculos abdominales para un core más fuerte y tonificado.', 'Abdominales de rodillas con barra EZ, Curvas laterales con mancuerna, Crunch inverso acostado, Despliegue de abdominales sobre rodillas', '', '', 'Abdomen', '15','0')",
+                "('Plan Gluteos', 'Enfocado en desarrollar y tonificar los músculos glúteos para una parte inferior más firme y esculpida.', 'Empuje de cadera alto con barra, Estocada con barra, Sentadilla frontal con barra', '', '', 'Gluteos', '15','0')"
+        };
+
+        // Verificar e insertar cada ejercicio
+        for (String plan : planes) {
+            db.execSQL("INSERT INTO PlanEntrenamiento (nombre, descripcion, ejercicios, clienteEmail, retroalimentacion, etiquetas, diasObjetivos, diasCompletados) VALUES " + plan + ";");
+            /*String refPlan = plan.split(",")[4].replace("'", "").trim();
+            Cursor cursor = db.rawQuery("SELECT id FROM PlanEntrenamiento WHERE id = ?", new String[]{refPlan});
+            if (cursor.getCount() == 0) {
+                // Insertar el ejercicio por defecto
+
+            }
+            cursor.close();*/
+        }
+    }
+    private void insertDefaultClientes(SQLiteDatabase db) {
+        String[] clientes = {
+                /*
+                fechaNacimiento, genero, altura, peso, objetivo, musculoObjetivo, experiencia, diasEntrenar, horaEntreno, gym, email
+                 */
+                "('10/09/2000', 'Masculino', '170.0', '60.0', 'Hipertrofia', 'Espalda', 'Principiante', 'Lunes, Martes, Miercoles, Jueves, Viernes, Sábado', '05:00', 'Ferchales','asd@')",
+                "('23/05/1995', 'Masculino', '160.0', '65.0', 'Hipertrofia', 'Pecho', 'Principiante', 'Lunes, Miercoles, Viernes, Sábado', '06:00', 'Ferchales','kaleth@hotmail.com')",
+                "('10/09/2000', 'Femenino', '180.0', '60.0', 'Hipertrofia', 'Brazos', 'Principiante', 'Lunes, Viernes, Sábado', '07:00', 'Ferchales','asd2@')",
+        };
+        //insertar cada ejercicio
+        for (String cliente : clientes) {
+            db.execSQL("INSERT INTO Cliente (fechaNacimiento, genero, altura, peso, objetivo, musculoObjetivo, experiencia, diasEntrenar, horaEntreno, gym, email) VALUES " + cliente + ";");
+        }
+    }
+    private void insertDefaultUsers(SQLiteDatabase db) {
+        String[] users = {
+                /*
+                nombre, email, password, tipoUsuario
+                 */
+                "('Camilo Torres', 'asd@', 'asd', 'Cliente')",
+                "('Kaleth Morales', 'kaleth@hotmail.com', 'kaleth', 'Cliente')",
+                "('Juancho Contreras', 'asd2@', 'asd2', 'Cliente')",
+                "('Administrador', 'admin', 'admin', 'Administardor')",
+        };
+        //insertar cada ejercicio
+        for (String user : users) {
+            db.execSQL("INSERT INTO Usuario (nombre, email, password, tipoUsuario) VALUES " + user + ";");
         }
     }
 }

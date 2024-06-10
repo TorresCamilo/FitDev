@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         if(!(email.isEmpty() || password.isEmpty())){
             if (Login(email, password)) {
                 Intent siguiente = new Intent(this, DashboardActivity.class);
+                siguiente.putExtra("email", email);
                 startActivity(siguiente);
                 finish();
             }else {

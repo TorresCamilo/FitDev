@@ -53,8 +53,9 @@ public class Form5Activity extends AppCompatActivity {
         String nombreGym_str = nombreGym.getText().toString();
         if (!(time.isEmpty() || nombreGym_str.isEmpty())) {
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("datosUsuario",datosUsuario);
-            intent.putExtra("fechaNacimiento",fechaNacimiento);
+            intent.putExtra("userName",datosUsuario[0]);
+            intent.putExtra("email",datosUsuario[1]);
+            /*intent.putExtra("fechaNacimiento",fechaNacimiento);
             intent.putExtra("genero",genero);
             intent.putExtra("altura",altura);
             intent.putExtra("peso",peso);
@@ -63,12 +64,12 @@ public class Form5Activity extends AppCompatActivity {
             intent.putExtra("experiencia",experiencia);
             intent.putExtra("diasEntrenar",diasEntrenar);
             intent.putExtra("horaEntreno",time);
-            intent.putExtra("gym",nombreGym_str);
+            intent.putExtra("gym",nombreGym_str);*/
 
             Registrar();
             Toast.makeText(this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
             startActivity(intent);
-            finish();
+            //finish();
         } else {
             Toast.makeText(this, "Rellene todos los campos!", Toast.LENGTH_SHORT).show();
         }

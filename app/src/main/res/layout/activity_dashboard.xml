@@ -35,17 +35,19 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="70dp"
             android:text="Hello"
+            android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/txtUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Camilo Torres"
+            android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView21"
@@ -53,13 +55,13 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView22"
+            app:layout_constraintBottom_toBottomOf="@+id/txtUserName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView21"
-            app:srcCompat="@drawable/profile" />
+            app:srcCompat="@drawable/perfil" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -239,16 +241,16 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="138dp"
+                android:layout_height="90dp"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/asd2" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/txtProgresoCustom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -260,10 +262,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintTop_toBottomOf="@+id/txtTitleCustom" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/txtTitleCustom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -271,8 +273,8 @@
                 android:textColor="#FFF"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView24"
-                app:layout_constraintStart_toStartOf="@+id/textView24"
+                app:layout_constraintEnd_toEndOf="@+id/txtProgresoCustom"
+                app:layout_constraintStart_toStartOf="@+id/txtProgresoCustom"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
