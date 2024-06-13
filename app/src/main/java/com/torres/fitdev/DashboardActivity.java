@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 
  public class DashboardActivity extends AppCompatActivity {
-    private String userName, email;
+    private String email;
     private String objetivo;
 
     @Override
@@ -42,6 +42,11 @@ import androidx.core.view.WindowInsetsCompat;
     }
     public void ListaEjercicios(View v){
         Intent siguiente = new Intent(this, ListEjercicios.class);
+        startActivity(siguiente);
+    }
+    public void PlanEntrenamiento(View v){
+        Intent siguiente = new Intent(this, PlanEntrenamiento.class);
+        siguiente.putExtra("etiquetaPlan",objetivo);
         startActivity(siguiente);
     }
     public void BuscarProgreso(){
@@ -71,6 +76,7 @@ import androidx.core.view.WindowInsetsCompat;
          SQLiteDatabase BaseDeDatabase = admin.getWritableDatabase();
 
          String sql = "SELECT musculoObjetivo, experiencia FROM Cliente WHERE email = '"+email+"'";
+
          // Ejecutar la consulta con parámetros seguros
          Cursor fila = BaseDeDatabase.rawQuery(sql, null);
          TextView txtTitleCustom = (TextView) findViewById(R.id.txtTitleCustom);
@@ -85,8 +91,6 @@ import androidx.core.view.WindowInsetsCompat;
          fila.close();
          BaseDeDatabase.close();
      }
-
-
     public void BuscarNameUser(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "FitdevDB", null, 1);
         SQLiteDatabase BaseDeDatabase = admin.getWritableDatabase();
@@ -97,11 +101,10 @@ import androidx.core.view.WindowInsetsCompat;
         TextView txtUserName = (TextView) findViewById(R.id.txtUserName);
         if(fila.moveToFirst()){
             txtUserName.setText(fila.getString(0));
-            Toast.makeText(this, "Entroo", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this,"No existe este usuario", Toast.LENGTH_SHORT).show();
         }
         fila.close();
         BaseDeDatabase.close();
     }
-}
+ }

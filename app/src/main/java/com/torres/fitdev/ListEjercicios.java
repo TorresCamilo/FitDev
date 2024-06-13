@@ -41,20 +41,20 @@ public class ListEjercicios extends AppCompatActivity {
 
         lista.setAdapter(new Adaptador(this, datos, datosImg));
     }
-    public void obtenerEjercicios() {
+    private void obtenerEjercicios() {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "FitdevDB", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
-        //SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT nombre, series, repeticiones FROM Ejercicio", null);
+        Cursor cursor = db.rawQuery("SELECT nombre, repeticiones, series, duracion, descripcion FROM Ejercicio", null);
 
-        this.datos = new String[cursor.getCount()][3];
+        this.datos = new String[cursor.getCount()][4];
         int i = 0;
 
         if (cursor.moveToFirst()) {
             do {
                 datos[i][0] = cursor.getString(0); // Nombre del ejercicio
-                datos[i][1] = cursor.getString(1); // Series del ejercicio
-                datos[i][2] = cursor.getString(2); // Repeticiones del ejercicio
+                datos[i][1] = cursor.getString(1); // Repeticiones del ejercicio
+                datos[i][2] = cursor.getString(2); // Series del ejercicio
+                datos[i][3] = cursor.getString(3); // Duracion del ejercicio
                 i++;
             } while (cursor.moveToNext());
         }

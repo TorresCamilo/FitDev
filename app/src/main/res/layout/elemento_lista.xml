@@ -10,21 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="114dp" />
+        app:layout_constraintGuide_begin="7dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="188dp" />
+        app:layout_constraintGuide_begin="168dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -36,74 +29,100 @@
     <TextView
         android:id="@+id/txtTituloEjercicio"
         android:layout_width="226dp"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:text="Máquina de elevación de pantorrillas sentado."
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/txtSegundos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="7dp"
+        android:text="segundos"
+        android:textColor="#636068"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/txtDuracion"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloEjercicio" />
+
+    <TextView
+        android:id="@+id/txtDuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="7dp"
+        android:text="60"
+        android:textColor="#636068"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/txtReps2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloEjercicio" />
+
+    <TextView
+        android:id="@+id/txtReps2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Duracion"
+        android:textColor="#636068"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/txtTituloEjercicio"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloEjercicio" />
 
     <TextView
         android:id="@+id/txtReps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:text="10"
         android:textColor="#636068"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/txtReps2"
+        app:layout_constraintTop_toBottomOf="@+id/txtReps2" />
 
     <TextView
         android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
-        android:text="reps  x  "
+        android:layout_marginTop="1dp"
+        android:text="reps  x"
         android:textColor="#636068"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toEndOf="@+id/txtReps"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/txtSeries"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="10"
-        android:textColor="#636068"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDuracion" />
 
     <TextView
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:text="series"
         android:textColor="#636068"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toEndOf="@+id/txtSeries"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDuracion" />
+
+    <TextView
+        android:id="@+id/txtSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:text="10"
+        android:textColor="#636068"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/txtDuracion" />
 
     <ImageView
         android:id="@+id/imgEjercicio"
         android:layout_width="148dp"
         android:layout_height="144dp"
-        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="parent"

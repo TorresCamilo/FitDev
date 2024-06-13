@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent siguiente = new Intent(this, DashboardActivity.class);
                 siguiente.putExtra("email", email);
                 startActivity(siguiente);
-                finish();
             }else {
                 Toast.makeText(this, "Email o contraseña incorrecta", Toast.LENGTH_SHORT).show();
             }
