@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FitDev"
         tools:targetApi="31">
         <activity
+            android:name=".VerPlanesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdministradorActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlanEntrenamiento"
             android:exported="false" />
         <activity

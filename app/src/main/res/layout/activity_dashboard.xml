@@ -67,11 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/bg_banner"
             android:elevation="4dp"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView29">
@@ -81,38 +80,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView240"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="30dp"
-                android:text="Progreso %"
-                android:textColor="#FFF"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView100"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView201" />
+                app:srcCompat="@drawable/buscar" />
 
             <TextView
                 android:id="@+id/textView201"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
-                android:text="Hipertrofia - Equilibrado"
+                android:text="Busca los planes de entrenamientos registrados por el gimnasio"
+                android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView240"
-                app:layout_constraintStart_toStartOf="@+id/textView240"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="20dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
@@ -139,7 +124,8 @@
                 android:layout_weight="1"
 
                 android:background="@drawable/bg_top_banner"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imgProgreso"
@@ -176,9 +162,10 @@
                 <ImageView
                     android:id="@+id/imgEjercicios"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_margin="8dp"
-                    app:srcCompat="@drawable/notification" />
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ejercicio" />
 
                 <TextView
                     android:id="@+id/txtEjercicios"
@@ -312,7 +299,6 @@
             android:layout_marginTop="45dp"
             android:text="Mis planes de entrenamientos"
             android:textSize="18sp"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
@@ -325,9 +311,19 @@
             android:text="Escoge los planes de entrenamientos que prefieras"
             android:textSize="12sp"
             android:textStyle="italic"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="79dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="207dp"
+            android:elevation="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ejercicio" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

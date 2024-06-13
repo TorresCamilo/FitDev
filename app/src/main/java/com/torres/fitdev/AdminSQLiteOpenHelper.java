@@ -121,19 +121,12 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "('Plan Brazos', 'Se centra en el desarrollo de los músculos de los brazos, bíceps y tríceps, para unos brazos más fuertes.', 'Press de hombros con barra, Inmersiones en barras paralelas, Ruleta rusa, Curvas laterales, Máquina de remo', 'asd2@', '', 'Brazos', '15','0')",
                 "('Plan Piernas', 'Ejercicios para fortalecer los músculos de las piernas, como cuádriceps, isquiotibiales y glúteos, para mejorar la fuerza y la estabilidad.', 'Sentadilla aérea, Sentadilla con barra, Sentadilla búlgara con barra, Empuje de cadera alto, Extensión de piernas sentado', '', '', 'Piernas', '15','0')",
                 "('Plan Abdomen', 'Trabaja los músculos abdominales para un core más fuerte y tonificado.', 'Abdominales de rodillas con barra EZ, Curvas laterales con mancuerna, Crunch inverso acostado, Despliegue de abdominales sobre rodillas', '', '', 'Abdomen', '15','0')",
-                "('Plan Gluteos', 'Enfocado en desarrollar y tonificar los músculos glúteos para una parte inferior más firme y esculpida.', 'Empuje de cadera alto con barra, Estocada con barra, Sentadilla frontal con barra', '', '', 'Gluteos', '15','0')"
+                "('Plan Gluteos', 'En   focado en desarrollar y tonificar los músculos glúteos para una parte inferior más firme y esculpida.', 'Empuje de cadera alto con barra, Estocada con barra, Sentadilla frontal con barra', '', '', 'Gluteos', '15','0')"
         };
 
         // Verificar e insertar cada ejercicio
         for (String plan : planes) {
             db.execSQL("INSERT INTO PlanEntrenamiento (nombre, descripcion, ejercicios, clienteEmail, retroalimentacion, etiquetas, diasObjetivos, diasCompletados) VALUES " + plan + ";");
-            /*String refPlan = plan.split(",")[4].replace("'", "").trim();
-            Cursor cursor = db.rawQuery("SELECT id FROM PlanEntrenamiento WHERE id = ?", new String[]{refPlan});
-            if (cursor.getCount() == 0) {
-                // Insertar el ejercicio por defecto
-
-            }
-            cursor.close();*/
         }
     }
     private void insertDefaultClientes(SQLiteDatabase db) {
@@ -158,7 +151,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "('Camilo Torres', 'asd@', 'asd', 'Cliente')",
                 "('Kaleth Morales', 'kaleth@hotmail.com', 'kaleth', 'Cliente')",
                 "('Juancho Contreras', 'asd2@', 'asd2', 'Cliente')",
-                "('Administrador', 'admin', 'admin', 'Administardor')",
+                "('Administrador', 'admin', 'admin', 'Administrador')",
         };
         //insertar cada ejercicio
         for (String user : users) {

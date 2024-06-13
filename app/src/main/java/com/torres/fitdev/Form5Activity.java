@@ -55,16 +55,6 @@ public class Form5Activity extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("userName",datosUsuario[0]);
             intent.putExtra("email",datosUsuario[1]);
-            /*intent.putExtra("fechaNacimiento",fechaNacimiento);
-            intent.putExtra("genero",genero);
-            intent.putExtra("altura",altura);
-            intent.putExtra("peso",peso);
-            intent.putExtra("objetivo",objetivo);
-            intent.putExtra("musculoObjetivo",musculoObjetivo);
-            intent.putExtra("experiencia",experiencia);
-            intent.putExtra("diasEntrenar",diasEntrenar);
-            intent.putExtra("horaEntreno",time);
-            intent.putExtra("gym",nombreGym_str);*/
 
             Registrar();
             Toast.makeText(this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();

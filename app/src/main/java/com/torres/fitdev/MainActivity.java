@@ -45,25 +45,39 @@ public class MainActivity extends AppCompatActivity {
         String email = edtEmail.getText().toString(),
                 password = edtPassword.getText().toString();
         if(!(email.isEmpty() || password.isEmpty())){
-            if (Login(email, password)) {
-                Intent siguiente = new Intent(this, DashboardActivity.class);
+            String userType = Login(email, password);
+            if (userType != null) {
+                Intent siguiente = null;
+                if (userType.equals("Administrador")) {
+                    siguiente = new Intent(this, AdministradorActivity.class);
+                    
+                } else if (userType.equals("Cliente")) {
+                    siguiente = new Intent(this, DashboardActivity.class);
+                }
                 siguiente.putExtra("email", email);
                 startActivity(siguiente);
-            }else {
+                edtEmail.setText("");
+                edtPassword.setText("");
+            } else
                 Toast.makeText(this, "Email o contraseña incorrecta", Toast.LENGTH_SHORT).show();
-            }
         }
 
 
     }
-    private boolean Login(String email, String password) {
-        String[] columns = {"id"};
+    private String Login(String email, String password) {
+        String[] columns = {"id", "tipoUsuario"};
         String selection = "email = ? AND password = ?";
         String[] selectionArgs = {email, password};
         Cursor cursor = baseDeDatos.query("Usuario", columns, selection, selectionArgs, null, null, null);
 
-        boolean isLoggedIn = cursor.getCount() > 0;
+        String result = null;
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("tipoUsuario");
+            if (columnIndex != -1) { // Verifica si la columna existe
+                result = cursor.getString(columnIndex);
+            }
+        }
         cursor.close();
-        return isLoggedIn;
+        return result;
     }
 }
